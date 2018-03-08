@@ -5,6 +5,7 @@ export const SET_EOS_ACCOUNT_NAME = "SET_EOS_ACCOUNT_NAME";
 export const SET_EOS_OWNER_KEYS = "SET_EOS_OWNER_KEYS";
 export const SET_EOS_ACTIVE_KEYS = "SET_EOS_ACTIVE_KEYS";
 export const DISCONNECT_EOS_ACCOUNT = "DISCONNECT_EOS_ACCOUNT";
+export const BACKUP_EOS_ACCOUNT = "BACKUP_EOS_ACCOUNT";
 export const TRY_CREATE_EOS_ACCOUNT = "TRY_CREATE_EOS_ACCOUNT";
 export const SUCCESS_CREATE_EOS_ACCOUNT = "SUCCESS_CREATE_EOS_ACCOUNT";
 export const FAIL_CREATE_EOS_ACCOUNT = "FAIL_CREATE_EOS_ACCOUNT";
@@ -42,6 +43,10 @@ type DisconnectEOSAccount = {
   type: "DISCONNECT_EOS_ACCOUNT"
 };
 
+type BackupFileEOSAccount = {
+    type: BACKUP_EOS_ACCOUNT
+};
+
 export type AccountActions =
   | CreateEOSAccountTryAction
   | CreateEOSAccountSuccessAction
@@ -49,7 +54,8 @@ export type AccountActions =
   | SetEOSAccountName
   | SetEOSOwnerKeys
   | SetEOSActiveKeys
-  | DisconnectEOSAccount;
+  | DisconnectEOSAccount
+  | BackupFileEOSAccount;
 
 export const tryCreateEOSAccount = (): CreateEOSAccountTryAction => ({
   type: TRY_CREATE_EOS_ACCOUNT
@@ -85,3 +91,9 @@ export const setEOSActiveKeys = (keys: KeyPair): SetEOSActiveKeys => ({
 export const disconnectEOSAccount = (): DisconnectEOSAccount => ({
   type: DISCONNECT_EOS_ACCOUNT
 });
+
+export const backupFileEOSAccount = (): BackupFileEOSAccount => ({
+    type: BACKUP_EOS_ACCOUNT
+});
+
+

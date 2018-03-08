@@ -8,7 +8,8 @@ const EOSAccount = ({
   ownerKeys,
   activeKeys,
   onDisconnect,
-  onCopy
+  onCopy,
+  onBackup
 }) => (
   <article>
     <h3>EOS</h3>
@@ -99,6 +100,16 @@ const EOSAccount = ({
                 text="Disconnect"
               />
             </div>
+          </div>
+
+          <div className="field u-mt3">
+              <div className="control">
+                  <Button
+                      className="is-large is-primary is-outlined"
+                      onClick={onBackup}
+                      text="Backup"
+                  />
+              </div>
           </div>
         </div>
       </div>

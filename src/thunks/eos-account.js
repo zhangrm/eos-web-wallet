@@ -5,7 +5,8 @@ import {
   disconnectEOSAccount,
   tryCreateEOSAccount,
   succeedCreateEOSAccount,
-  failCreateEOSAccount
+  failCreateEOSAccount,
+  backupFileEOSAccount
 } from "../redux-modules/eos-account/account-actions";
 import ecc from "eosjs-ecc";
 import { push } from "react-router-redux";
@@ -56,6 +57,11 @@ export const addEOSAccount = (
 export const removeEOSAccount = () => async dispatch => {
   dispatch(disconnectEOSAccount());
   await dispatch(updateProfileWithEOSAccountIfNeeded());
+};
+
+export const backupEOSAccount = ()=> async dispatch => {
+    dispatch(backupFileEOSAccount());
+    await dispatch(updateProfileWithEOSAccountIfNeeded());
 };
 
 export const createEOSAccount = (
